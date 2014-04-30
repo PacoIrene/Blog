@@ -1,0 +1,45 @@
+var that = this;
+之前一直都习惯这样用，也没觉得不好，今天突然在Smashingmagazine上面看到一篇博客，介绍了Function.Prototype.bind，开拓了眼界，把学到的记录一下。
+
+之所以使用var that = this;是因为一个作用域的问题，很多时候由于执行上下文的变化，造成了this指向的不正确，所以有些时候我们会使用that来临时保存this的上下文，也有些开发者习惯使用var self = this来代替，当然使用什么只是一个个人习惯的问题，并无优劣之分。
+
+一个很常见的例子就是click事件或者是setTimeout
+
+var sample = {
+	name :"sample",
+	sayName: function() {
+		console.log(this.name);
+	}
+}
+sample.sayName();
+setTimeout(sample.sayName, 1000);
+
+很明显第一个sample.sayName()中会打印出sample，而第二个会是setTimeout的name，这不是我们想要的结果
+
+我们可以使用that来代替this，但改造成本貌似有那么一点点大
+
+当然，如果你使用JQuery的话，可以使用$.proxy()方法，只需要把setTimeout改造成
+setTimeout($.proxy(sample.sayName, sample), 1000);
+也很酷，而且也很方便，很好理解
+
+不过我们可以使用更为方便地方法
+Function.Prototype.bind()
+
+同样将setTimeout方法改造为setTimeout(sample.sayName.bind(sample), 1000);
+再看下结果，显然已经打印出了sample
+
+貌似很好的解决了这个问题，但同样bind方法在带来方便地同时也有一定的缺陷
+我并不认为使用that要比bind差，bind的好处在于你无非多学习了一个JS的方法，同时少写了一行代码
+但很明显，你往往需要将滚动条拉倒方法的最后一行才可以看到这个bind，而且和that相比，显然增加了理解代码的难度，所以个人不太建议
+在已经习惯使用that的情况下代替使用bind
+
+另一方面，任何前端工程师都要考虑的浏览器兼容的问题，不得不看到IE8以下版本包括IE8并不支持这个方法，所以使用需谨慎
+
+在网上看到了一个关于bind内部实现的简单代码
+Function.prototype.bind = function (scope) {
+    var fn = this;
+    return function () {
+        return fn.apply(scope);
+    };
+}
+本质还是apply
