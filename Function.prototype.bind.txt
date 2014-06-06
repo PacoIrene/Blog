@@ -1,7 +1,9 @@
 var that = this;
-之前一直都习惯这样用，也没觉得不好，今天突然在Smashingmagazine上面看到一篇博客，介绍了Function.Prototype.bind，开拓了眼界，把学到的记录一下。
+之前一直都习惯这样用，也没觉得不好，今天突然在Smashingmagazine上面看到一篇博客，介绍了Function.Prototype.bind，开拓了眼界，
+把学到的记录一下。
 
-之所以使用var that = this;是因为一个作用域的问题，很多时候由于执行上下文的变化，造成了this指向的不正确，所以有些时候我们会使用that来临时保存this的上下文，也有些开发者习惯使用var self = this来代替，当然使用什么只是一个个人习惯的问题，并无优劣之分。
+之所以使用var that = this;是因为一个作用域的问题，很多时候由于执行上下文的变化，造成了this指向的不正确，所以有些时候我们会
+使用that来临时保存this的上下文，也有些开发者习惯使用var self = this来代替，当然使用什么只是一个个人习惯的问题，并无优劣之分。
 
 一个很常见的例子就是click事件或者是setTimeout
 
