@@ -1,0 +1,11 @@
+最近在给frost做官网的时候遇到一个问题，想要实现一个文件的下载，本来是一个很简单的问题
+
+不过由于frost只有三个静态页面，压根没有什么后台，所以一时间犯了难，不知道怎么实现下载
+
+后来就在网上找了找，原来HTML5在a标签中添加了一个download的属性，通过这个属性就可以实现文件的下载
+
+<a href="build/frost.min.js" download> 就可以了
+
+然后download可以赋值，赋的值就是你要给下载的文件添加的文件名
+
+比如<a href="build/frost.min.js" download="frost.min.js">
