@@ -1,0 +1,64 @@
+今天，看到一些介绍nth-of-type的东西，感觉蛮新颖的，值得记录一下
+
+平时，我们都知道，CSS3的选择器中有一个nth-child的选择器
+
+我们经常使用的，例如nth-child(odd),nth-child(even),或者nth-child(4n+1)，蛮好用的
+
+在以下例子中:
+
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+</ul>
+
+ul li:nth-child(2n) {
+	background-color: black;
+}
+
+这样就选择了偶数项的li，使其背景色变成黑色
+
+
+但，假如，html的结构如下所示
+
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<p>6</p>
+	<li>7</li>
+</ul>
+
+
+此种情况下，再使用
+ul li:nth-child(2n) {
+	background-color: black;
+}
+造成的结果就是2,4被选中，但第6个li，也就是序号7的li本该被选中，结果却没有被选中
+
+
+因而，此种情况下，我们可以使用nth-of-type,它选取了父类元素中指定类型的子类元素
+
+
+例如，在以上情况下，使用如下css条件
+ul li:nth-of-type(2n) {
+	background-color: black;
+}
+
+这样，被选中的li就是2,4,7
+
+因为序号7的li其本质上在li中是第6个
+
+当然，与nth-last-child是从反向计数一样，nth-last-of-type同样也是从反向计数，作用筒nth-type-of
+
+
+
+最后的最后，让我们回到浏览器兼容的问题上来
+
+
+大可放心，无论是nth-child，nth-last-child还是nth-of-type，nth-last-of-type，从IE9开始，浏览器都对其支持
