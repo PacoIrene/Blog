@@ -7,16 +7,16 @@
 在以下例子中:
 
 <ul>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
 </ul>
 
 ul li:nth-child(2n) {
-	background-color: black;
+  background-color: black;
 }
 
 这样就选择了偶数项的li，使其背景色变成黑色
@@ -25,19 +25,19 @@ ul li:nth-child(2n) {
 但，假如，html的结构如下所示
 
 <ul>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<p>6</p>
-	<li>7</li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <p>6</p>
+  <li>7</li>
 </ul>
 
 
 此种情况下，再使用
 ul li:nth-child(2n) {
-	background-color: black;
+  background-color: black;
 }
 造成的结果就是2,4被选中，但第6个li，也就是序号7的li本该被选中，结果却没有被选中
 
@@ -47,7 +47,7 @@ ul li:nth-child(2n) {
 
 例如，在以上情况下，使用如下css条件
 ul li:nth-of-type(2n) {
-	background-color: black;
+  background-color: black;
 }
 
 这样，被选中的li就是2,4,7
