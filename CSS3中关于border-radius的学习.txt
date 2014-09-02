@@ -3,7 +3,7 @@ border-radius这个属性我们很熟悉了
 不过一直以来我常使用的方式是
 
 #block {
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
 表达的意思就是有一个5px大小的圆角
@@ -13,8 +13,8 @@ border-radius这个属性我们很熟悉了
 也就是
 
 #block {
-	border-radius: 5px 10px;
-	border-radius: 5px 10px 20px 30px;
+  border-radius: 5px 10px;
+  border-radius: 5px 10px 20px 30px;
 }
 
 不过今天的重点并不是这个，以上这些东西都很显然，也很常用
@@ -24,7 +24,7 @@ border-radius这个属性我们很熟悉了
 来，我们看一下例子
 
 #block {
-	border-radius: 5px/10px;
+  border-radius: 5px/10px;
 }
 
 看到区别了吗，对的，就是用"/"分隔了两个参数
@@ -35,17 +35,17 @@ border-radius这个属性我们很熟悉了
 
 例如，假如我们这样写
 #block {
-	border-radius: 5px/5px;
+  border-radius: 5px/5px;
 }
 那其实浏览器渲染的时候会直接按照
 #block {
-	border-radius: 5px;
+  border-radius: 5px;
 }
 的方式进行渲染
 
 当然我们可以更加细化，可以这样写：
 
 #block {
-	border-radius: 5px 10px 20px 30px/10px;
-	border-radius: 5px 10px 20px 30px/10px 20px 30px 40px;
+  border-radius: 5px 10px 20px 30px/10px;
+  border-radius: 5px 10px 20px 30px/10px 20px 30px 40px;
 }
