@@ -1,0 +1,51 @@
+border-radius这个属性我们很熟悉了
+
+不过一直以来我常使用的方式是
+
+#block {
+	border-radius: 5px;
+}
+
+表达的意思就是有一个5px大小的圆角
+
+不过，我们也可以使用类似于margin的参数形式，两个或者四个
+
+也就是
+
+#block {
+	border-radius: 5px 10px;
+	border-radius: 5px 10px 20px 30px;
+}
+
+不过今天的重点并不是这个，以上这些东西都很显然，也很常用
+
+较不常用的是双参数的形式【好吧，这个名字是我自己取的】
+
+来，我们看一下例子
+
+#block {
+	border-radius: 5px/10px;
+}
+
+看到区别了吗，对的，就是用"/"分隔了两个参数
+
+它表达的意思就是在圆角处，有一个5px的水平圆角，同时有一个10px的垂直圆角
+
+也就是说之前的使用方式为每个圆角设置一个相同的水平圆角和垂直圆角，而目前这种方式则更为具体和细化
+
+例如，假如我们这样写
+#block {
+	border-radius: 5px/5px;
+}
+那其实浏览器渲染的时候会直接按照
+#block {
+	border-radius: 5px;
+}
+的方式进行渲染
+
+当然我们可以更加细化，可以这样写：
+
+#block {
+	border-radius: 5px 10px 20px 30px/10px;
+	border-radius: 5px 10px 20px 30px/10px 20px 30px 40px;
+}
