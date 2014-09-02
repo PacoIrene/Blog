@@ -5,7 +5,7 @@
 它的常规用法和text-shadow比较类似，一共四个参数，如下所示:
 
 #block {
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 第一个参数表示水平方向上向右的偏移，第二个参数表示垂直方向上向下的偏移，第三个参数表示一个模糊度，第四个参数是颜色值
@@ -21,8 +21,8 @@
 其实，形成内阴影很容易，我们只需添加一个inset即可
 
 #block {
-	box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5);
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) inset;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) inset;
 }
 
 当然，这个inset的位置可以再参数的开头，也可以在结尾
@@ -30,7 +30,7 @@
 第二个细节，是参数的个数，常规形式下，是四个，不过我们也可以使用五个参数
 
 #block {
-	box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 其中第一个，第二个，第三个参数的含义和之前一样，第5个也表示颜色值，不过第四个是控制阴影整体面积的大小
