@@ -36,7 +36,7 @@ p {
   border: 30px solid transparent;
   border-image: url(http://www.w3school.com.cn/i/border.png) 30 round;
 }
-
+地址如下:http://jsfiddle.net/La9cLmhk
 其中，要注意的一点就是border-style是一定要设置的，否则就无法显示，而对于border-width而言，是控制整体边框的宽度，一般也是需要设置的，否则会按默认的宽度显示，而border-color则可要可不要
 
 对于border-image而言，还记得之前的那个很熟悉的应用场景吗，和向军一起做的那个项目里面，所有的button的背景图都是通过这种形式加载进去的，当时觉得很惊讶，真的想不到居然还有这样的用法，不过现在看来还是蛮简单和有用的
