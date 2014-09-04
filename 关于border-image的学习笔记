@@ -1,0 +1,42 @@
+border-image顾名思义，就是用一张图片作为一个区域的边框
+
+在以往，我们给一个div之类的添加边框，固定的方式是border: 10px solid black，其中，边框类型只有固定的几种，例如solid，dashed，dotted等等，略显单调，而如今，在CSS3添加了border-image之后，突然间再也不单调了，我们可以用图片来为div添加边框了，有意思
+
+来来来，首先先介绍一下box-image的基本语法
+
+其实很简单
+
+#block {
+  border-image: url(source.png) 20 10 20 30 repeat;
+  border-image: url(source.png) 20% 10% 20% 30% repeat;
+}
+
+参数主要分为三个部分
+第一部分是url(source.png)，这个部分很好理解，其实就是设置border背景图片的路径
+我们也可以使用border-image-source来对其单独进行设置
+即：border-image-source: url(source.png)
+
+第二部分是20 10 20 30，或者20% 10% 20% 30%
+这部分表示的其实是border-image-slice，是对图片的切割，和CSS的惯例类似，这四个参数分别表示top，right，bottom和left
+
+
+其中第一种参数形式表示的含义其实是像素，也就是px，但一定要注意的是，不能真的把px添到后面去，要么你就死了，绝逼不会渲染出来
+第二种参数形式是百分比的形式，其实是根据图片的大小进行百分比的乘法，例如，我们的source.png的大小是100x100的图片
+
+第三部分表示的是对于切割好的部分的处理方式，和background-image类似，有repeat,stretch,round，这个参数其实就是border-image-repeat，一般会有两个参数，分别表示水平位置和垂直位置
+例如：border-image: url(source.png) 20 repeat stretch
+其中round和repeat表示平铺，stretch表示拉伸
+round和repeat的区别在于round平铺可能会改变边框背景图片大小来适应边框宽度排列。而repeat就不一样了，repeat重复是不改变背景图片大小而直接从中间向两端排列
+
+<p>
+  Demo
+</p>
+
+p {
+  border: 30px solid transparent;
+  border-image: url(http://www.w3school.com.cn/i/border.png) 30 round;
+}
+
+其中，要注意的一点就是border-style是一定要设置的，否则就无法显示，而对于border-width而言，是控制整体边框的宽度，一般也是需要设置的，否则会按默认的宽度显示，而border-color则可要可不要
+
+对于border-image而言，还记得之前的那个很熟悉的应用场景吗，和向军一起做的那个项目里面，所有的button的背景图都是通过这种形式加载进去的，当时觉得很惊讶，真的想不到居然还有这样的用法，不过现在看来还是蛮简单和有用的
